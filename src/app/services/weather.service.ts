@@ -1,0 +1,21 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class WeatherService {
+
+  private apiKey ="9f7810b370a946e9a18141819231107";
+
+  constructor(private http:HttpClient) { }
+
+  getWeather(city: string) {
+    const url = `https://api.weatherapi.com/v1/current.json?key=${this.apiKey}&q=${city}`;
+
+    return this.http.get(url);
+  } 
+
+  
+}
